@@ -1,0 +1,26 @@
+
+#search_bar{
+ width: 80%;
+ margin: 1px auto;
+}
+#query{
+    width: 80%;
+    height: 35px;
+    border: 1px solid teal;
+ border-radius: 25px;
+}
+#category{
+display: flex;
+margin-top: 15px;
+justify-content: space-evenly;
+border: 1px solid violet;
+border-radius: 10px;
+}
+#category h3{
+    border: 1px solid teal;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            overflow: scroll;
+            border: 1 px solid teal;
+            border-top: none;
+            height: 200px;
+            width: 200px;
+
+
+        }
+        #searchmov{
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <nav style="text-align: center;"><h1>Hotstar</h1></nav>
+    <input type="text" oninput="debounce(main,3000)" id="searchmov">
+    <div id="container"></div>
+</body>
+</html>
+<script>
+    let id;
+    let box=document.getElementById("container")
+ searchmov=async()=>{
+     let q=document.getElementById("searchmov").value
+try{
+    let res= await fetch(`https://www.omdbapi.com/?apikey=6a41ddca&s=${q}`)
+    let data=await res.json()
+    let content=data.Search
+   // console.log(content)
+   return content
+}catch(err){
+    console.log(err)
+}
+}
+let appendata=(data1)=>{
+    console.log(data1)
+    box.innerHTML=null
+data1.forEach(function(el){
+    let title=document.createElement("h4")
+    title.innerHTML=el.Title
+    box.append(title)
+})
+}
+
+let main= async ()=>{
+let data= await searchmov()
+if(data===undefined){
+   
+   return false
+}
+appendata(data)
+}
+
+function debounce(func,delay){
+    if(id){
+        clearInterval(id)
+    }
+id=setTimeout(function(){
+func()
+
+},delay)
+
+}
+</script>

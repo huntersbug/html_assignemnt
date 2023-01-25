@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+            color: teal;
+        }
+        button{
+            border-radius: 8px;
+            width: 18%;
+   margin-left: 20px;
+  background-color: blanchedalmond;
+        }
+        #box li{
+            margin-bottom: 10px;
+            color:teal
+        }
+        #scopediv{
+            width: 18%;
+        
+            border:1px solid black;
+            margin-left: 20px;
+            
+        }
+        #constructordiv{
+            width: 18%;
+        
+            border:1px solid black;
+            margin-left: 20px;
+            
+        }
+        #box{
+display: flex;
+
+        }
+        #hoistingdiv{
+            width: 18%;
+        
+        border:1px solid black;
+        margin-left: 20px;
+        }
+        #primitivediv{
+            width: 18%;
+        
+        border:1px solid black;
+        margin-left: 20px;
+        }
+        #Mutandimmutdiv{
+            width: 18%;
+        
+        border:1px solid black;
+        margin-left: 20px;
+        }
+        #container{
+            width: 80%;
+            margin: auto;
+            margin-top: 50px;
+           
+            height: 500px;
+                  
+        }
+    </style>
+</head>
+<body>
+    <h1>Learning App</h1>
+    <button id="scope">For info of scope then click the button</button>
+    <button id="constructor">For Info of constructor click the button</button>
+    <button id="hoisting">For Info of hoisting click the button</button>
+    <button id="primitive">For Info of primitive click the button</button>
+    <button id="Mutandimmut">For Info of Mutable/immutable click the button</button>
+   <div id="box">
+
+    <div id="scopediv"></div>
+    <div id="constructordiv"></div>
+    <div id="hoistingdiv"></div>
+    <div id="primitivediv"></div>
+    <div id="Mutandimmutdiv"></div>
+
+
+   </div>
+   <div id="container">
+    <iframe src="https://drive.google.com/file/d/1s5b5HE0F2D535C1QxsZsWsqyedD00_4U/preview" width="840" height="500" allow="autoplay"></iframe>
+   </div>
+</body>
+</html>
+<script>
+
+    document.getElementById("scope").addEventListener("click",scope)
+   
+
+function scope()
+{
+    let scopediv=document.getElementById("scopediv")
+scopediv.innerHTML=null
+   let scopearr=JSON.parse(localStorage.getItem("scopedata"))||[]
+    let ul=document.createElement("ul")
+    let li1=document.createElement("li")
+    li1.innerHTML=" Three types of scope  Block scope,Function scope,Global scope"
+   
+    let li2=document.createElement("li")
+    li2.innerHTML="Suppose if we assign value in braces with {Let x=5} then you can not used outside it but if assign outside braces they work as global"
+    let li3=document.createElement("li")
+    li3.innerHTML=" Suppose if we assign value in braces with {var x=5} then you can  used outside it but if assign outside braces they work as global"
+    let li4=document.createElement("li")
+    li4.innerHTML="Suppose if we assign value in braces with const x=5 then you can not be reassign it"
+    ul.append(li1,li2,li3,li3,li4)
+ 
+   scopediv.append(ul)
+   
+    //this is a part of local storage and constructor function
+    let p1= new objmake(li1.innerHTML,li2.innerHTML,li3.innerHTML,li4.innerHTML)
+scopearr.push(p1)
+localStorage.setItem("scopedata",JSON.stringify(scopearr))
+
+}
+
+//constructor function--------------------------------------------
+document.getElementById("constructor").addEventListener("click",constructor)
+function objmake(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p){
+this.li1=a
+this.li2=b
+this.li3=c
+this.li4=d
+this.lic=e
+this.lic1=f
+this.lic3=g
+this.lic4=h
+
+this.lic1=i
+this.lic11=j
+this.lic31=k
+this.lic41=l
+
+this.l=m
+this.l1=n
+this.l2=o
+this.l3=p
+
+
+
+}
+
+// constructor info button --------------------------------------------------------------
+function constructor()
+{let constdiv=document.getElementById("constructordiv")
+constdiv.innerHTML=null
+    let consarr=JSON.parse(localStorage.getItem("constructordata"))||[]
+    
+    let ul1=document.createElement("ul")
+    let lic=document.createElement("li")
+    lic.innerHTML="In the contructor function there are two keyword is New and This"
+    
+    let lic1=document.createElement("li")
+    lic1.innerHTML=" New is used to return the object no need to create object they return object."
+    let lic3=document.createElement("li")
+    lic3.innerHTML="In this This keyword is used to create object"
+    let lic4=document.createElement("li")
+    lic4.innerHTML="By using this and new keyword no need to create or assigned object it make"
+    ul1.append(lic,lic1,lic3,lic4)
+   constdiv.append(ul1)
+// ---------------------------------------------------
+let p2= new objmake(lic.innerHTML,lic1.innerHTML,lic3.innerHTML,lic4.innerHTML)
+consarr.push(p2)
+localStorage.setItem("constructordata",JSON.stringify(consarr))
+}
+//------------------------hoisting data---------------------------------------
+document.getElementById("hoisting").addEventListener("click",hoisting)
+function hoisting()
+{
+
+    let hoistdiv=document.getElementById("hoistingdiv")
+    hoistdiv.innerHTML=null
+    let hoistarr=JSON.parse(localStorage.getItem("hoistdata"))||[]
+    
+    let ul2=document.createElement("ul")
+    let lic1=document.createElement("li")
+    lic1.innerHTML="The declaration of functions, variables or classes to the top of their scope"
+    
+    let lic11=document.createElement("li")
+    lic11.innerHTML=" One of the advantages of hoisting is that it lets you use a function before you declare it in your code."
+    let lic31=document.createElement("li")
+    lic31.innerHTML="Hoisting works with variables too, so you can use a variable in code before it is declared and/or initialized."
+    let lic41=document.createElement("li")
+    lic41.innerHTML="Variables declared with let and const are also hoisted but, unlike var, are not initialized with a default value."
+    ul2.append(lic1,lic11,lic31,lic41)
+   hoistdiv.append(ul2)
+let p3= new objmake(lic1.innerHTML,lic11.innerHTML,lic31.innerHTML,lic41.innerHTML)
+hoistarr.push(p3)
+localStorage.setItem("hoistdata",JSON.stringify(hoistarr))
+}
+//--------------------primitivediv-----------------------
+
+document.getElementById("primitive").addEventListener("click",primitive)
+function primitive()
+{
+    let pridiv=document.getElementById("primitivediv")
+pridiv.innerHTML=null
+    let priarr=JSON.parse(localStorage.getItem("pridata"))||[]
+    
+    let ul=document.createElement("ul")
+    let li=document.createElement("li")
+    li.innerHTML="There are 7 primitive data types: string, number, big int, boolean, undefined, symbol, and null."
+    
+    let li1=document.createElement("li")
+    li1.innerHTML=" All primitives are immutable, i.e., they cannot be altered. It is important not to confuse a primitive itself with a variable assigned a primitive value."
+    let li2=document.createElement("li")
+    li2.innerHTML=" primitives are mutable."
+    let li3=document.createElement("li")
+    li3.innerHTML="The variable may be reassigned a new value, but the existing value can not be changed in the ways that objects, arrays, and functions can be altered.."
+    ul.append(li,li1,li2,li3)
+  pridiv.append(ul)
+let p3= new objmake(li.innerHTML,li1.innerHTML,li2.innerHTML,li3.innerHTML)
+priarr.push(p3)
+localStorage.setItem("pridata",JSON.stringify(priarr))
+}
+//----------------------------------------------------------------------------
+document.getElementById("Mutandimmut").addEventListener("click",mut)
+function mut()
+{
+    let mutdiv= document.getElementById("Mutandimmutdiv")
+    mutdiv.innerHTML=null
+    let mutarr=JSON.parse(localStorage.getItem("mutdata"))||[]
+    
+    let ul=document.createElement("ul")
+    let l=document.createElement("li")
+    l.innerHTML="Mutable is a type of variable that can be changed. In JavaScript, only objects and arrays are mutable, not primitive values.."
+    
+    let l1=document.createElement("li")
+    l1.innerHTML=" All primitives are immutable, i.e., they cannot be altered. It is important not to confuse a primitive itself with a variable assigned a primitive value."
+    let l2=document.createElement("li")
+    l2.innerHTML=" primitives are mutable."
+    let l3=document.createElement("li")
+    l3.innerHTML="The variable may be reassigned a new value, but the existing value can not be changed in the ways that objects, arrays, and functions can be altered.."
+    ul.append(l,l1,l2,l3)
+  mutdiv.append(ul)
+let p4= new objmake(li.innerHTML,l1.innerHTML,l2.innerHTML,l3.innerHTML)
+mutarr.push(p4)
+localStorage.setItem("mutdata",JSON.stringify(mutarr))
+}
+</script>

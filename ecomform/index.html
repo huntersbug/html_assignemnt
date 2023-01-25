@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecom1</title>
+    <style>
+        form{
+            text-align: center;
+ margin-top: 100px;
+        }
+        form input{
+            margin-bottom: 20px;
+        }
+        form select{
+            margin-bottom:20px;
+        }
+        #text{
+            width: 100%;
+            background-color: teal;
+        }
+        #text h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav id="text">
+        <h1>E com Form </h1>
+        <a href="./product.html">Go to product</a>
+    </nav>
+  <form action=""  id="product" onsubmit="storeproduct(event)">
+    Enter name of product: <input type="text" id="productname" placeholder="enter name of product">
+      <br>
+      Enter name of brand: <input type="text" id="productbrand" placeholder="enter brand">
+      <br>
+      Enter name of Category: <input type="text" id="category" placeholder="enter category">
+      <br>
+      Enter name ofimage_url: <input type="url" name="" id="image" placeholder="enter image url">
+       <br>
+       Enter name of price: <input type="number" name="" id="price" placeholder="enter price"> 
+      <br>
+     Select Gender: <select value="" id="gender"> 
+         <option name="" id="Male">Male</option>
+ <option name="" id="Female">Female</option>
+</select>
+<br>
+       UnSold: <select name="" id="sold">
+           <option value="NotSold">False</option>
+           <option value="Sold">True</option>
+       </select>
+       <br>
+       Submit the form: <input type="submit" id="add">
+       
+  </form>  
+
+</body>
+</html>
+<script src="nd.js"></script>

@@ -1,0 +1,43 @@
+#navbar{
+        display: flex;
+        justify-content: space-between;
+border: 1px solid teal;
+    }
+    #container a{
+        margin-left: 10px;
+    }
+    #container{
+        display: flex;
+       gap: 40px;
+     
+    }
+    #search{
+        height: 50%;
+    margin-top: 10px;
+
+    }
+    #submit{
+        height: 50%;
+        margin-top: 10px;
+    }
+   a{
+        text-decoration: none;
+    }
+    #box{
+        display: grid;
+
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows:auto;
+    gap: 20px;
+
+    }
+    #box img{
+        width: 100px;
+        height: 100px;
+    }
+    #search{
+        text-align: center;
+    }
+    body {
+        background-image: url('https://images.unsplash.com/photo-1519750783826-e2420f4d687f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJldHR5JTIwYmFja2dyb3VuZHxlbnwwfHwwfHw%3D&w=1000&q=80');
+      }

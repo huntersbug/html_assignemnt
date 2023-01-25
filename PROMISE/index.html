@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         #nav{
+        width: 100%;
+        background-color: teal;
+        }
+        #nav h1{
+            text-align: center;
+            color: azure;
+        }
+        #container{
+            width: 80%;
+            margin: auto;
+   
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="nav">
+        <h1> Mcdonald  Restaurant</h1>
+    </nav>
+<select name="food" id="foodid">
+    <option value="Dosa">Dosa</option>
+    <option value="Burger">Burger</option>
+    <option value="Pizza">Pizza</option>
+    <option value="Ice cream">Ice cream</option>
+   
+</select>
+<button onclick="shoeresult()">Submit</button>
+<div id="container">
+    <h2 id="orderid"></h2>
+    <img src="" alt="" id="productimg">
+</div>
+</body>
+</html>
+<script>
+    function shoeresult()
+    {
+let value=document.getElementById("foodid").value
+let ord= document.getElementById("orderid")
+    
+
+
+let foodimg=document.getElementById("productimg")
+
+    let mypromise=new Promise(function(resolved,reject){
+
+setTimeout(function(){
+
+    if(value!=="")
+    {
+        console.log(value)
+     resolved("food is serve")
+    }
+    else{
+        reject("not available")
+    }
+},3000)
+})
+mypromise.then(function(res){
+if(value==="Dosa")
+{
+    
+    foodimg.src="https://media.istockphoto.com/photos/group-of-south-indian-food-like-masala-dosa-uttapam-idliidly-wadavada-picture-id1024558380?k=20&m=1024558380&s=612x612&w=0&h=cgkSW1aukxs9wBKXmsqBtCgjZF5lWQbjSr-rhhzz3bs="
+ord.innerHTML="Orderid: 2050150"
+}
+if(value==="Dosa")
+{
+    
+    foodimg.src="https://media.istockphoto.com/photos/group-of-south-indian-food-like-masala-dosa-uttapam-idliidly-wadavada-picture-id1024558380?k=20&m=1024558380&s=612x612&w=0&h=cgkSW1aukxs9wBKXmsqBtCgjZF5lWQbjSr-rhhzz3bs="
+ord.innerHTML="Orderid: 2050150"
+}
+
+else if(value==="Burger")
+{
+    
+    foodimg.src="https://media.istockphoto.com/photos/juicy-hamburger-on-white-background-picture-id1206323282?k=20&m=1206323282&s=612x612&w=0&h=yatlq6BHRCCvoTzFZLSwaJc0O8Quct_tRPWtH0dj9Fc="
+ord.innerHTML="Orderid: 200150"
+}
+
+else if(value==="Ice cream")
+{
+    
+    foodimg.src="https://media.istockphoto.com/photos/strawberry-vanilla-chocolate-ice-cream-with-waffle-cone-on-marble-picture-id1161805849?k=20&m=1161805849&s=612x612&w=0&h=LTR45FROAo4nIQJ5xl3Ur_-2wdagm608Ve1pSVyMkyo="
+ord.innerHTML="Orderid: 200150"
+}
+else if(value==="Pizza")
+{
+    
+    foodimg.src="https://media.istockphoto.com/photos/pizza-picture-id184946701?k=20&m=184946701&s=612x612&w=0&h=LRc4BfIMzP3QW9QKr5eria66F1ZeV2EY8xXeva-E6io="
+ord.innerHTML="Orderid: 200150"
+}
+
+
+
+console.log(`${value} will serve`)
+}).catch(function(err){
+
+})
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+</script>

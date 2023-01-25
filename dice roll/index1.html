@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 50%;
+            height: 100px;
+            margin-top: 100px;
+            display: flex;
+            margin-left: 250px;
+        }
+        #member{
+            width: 15%;
+            height: 50px;
+            border: 1px solid black;
+            margin-right: 20px;
+        }
+        #member2{
+            width: 15%;
+            height: 50px;
+            border: 1px solid black;
+        }
+       #btn{
+         margin-left:300px;
+            margin: top 50px;
+       display: block;
+       text-align: center;
+        }
+#mem1{
+margin: auto;
+    color: aqua;
+    margin-left: 50px;
+   
+}
+#mem2{
+ margin: auto;
+    color: aqua;
+   margin-bottom: 20px;
+   margin-left: 50px;
+}
+ h1{
+    margin-left: 200px;
+}
+    </style>
+</head>
+<body>
+   <h1>Roll dice problem</h1>
+    <div id="container">
+    <div id="member">
+        <h1 id="mem2">a</h1>
+    </div>
+    <div id="member2">
+        <h1 id="mem1">b</h1>
+    </div>
+
+
+   </div>
+   <button id="btn">Press the  button for roll</button>
+</body>
+</html>
+<script>
+// 0-1.0
+var dice1={
+    side:6,
+    roll:function ()
+    {
+        var number1=Math.floor(Math.random()*this.side)+1
+     return number1
+    }
+}
+var dice2={
+    side:6,
+    roll:function ()
+    {
+        var number2=Math.floor(Math.random()*this.side)+1
+        return number2
+    }
+}
+
+var button=document.getElementById("btn")
+button.onclick=function ()
+{
+  var result1=dice1.roll()
+  var result2=dice2.roll()
+  printnumber(result1,result2)
+}
+
+function printnumber(result1,result2)
+{
+    let head1=document.getElementById("mem2")
+    let head2=document.getElementById("mem1")
+    head1.innerHTML=result1
+    head2.innerHTML=result2
+}
+</script>

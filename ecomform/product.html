@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: auto; gap: 30px;
+        }
+        #container div{
+            border: 1px solid black;
+         
+        }
+
+        #btn{
+            margin-right: 20px;
+        }
+        #gridimg{
+      width:70px;
+      height: 70px;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="counter"><p id="counting">0</p></div>
+    <div id="container">
+
+
+        
+    </div>
+   
+</body>
+</html>
+<script>
+    let btn1;
+   let arr1=JSON.parse(localStorage.getItem("productData"))
+
+   console.log(arr1)
+   arr1.map(function(ele,index){
+let images=document.createElement("img")
+images.src=ele.image
+    let name =document.createElement("h2")
+    name.innerHTML=`Name of product:${ele.name}`
+    let price =document.createElement("h2")
+   price.innerHTML=`price of product:${ele.price}`
+   btn1=document.createElement("button")
+   btn1.innerHTML="Unsold"
+btn1.style.backgroundColor="red"
+
+
+   btn1.addEventListener("click",function (){
+    solditem(ele,btn1)
+   })
+  
+   let btn2=document.createElement("button")
+   btn2.innerHTML="Remove Item"
+   btn2.addEventListener("click",function(){
+       removeitem(ele,i)
+   })
+   let box=document.createElement("div")
+   let para=document.getElementById("counting")
+   para.innerHTML=arr1.length
+   box.append(images,name,price,btn1,btn2)
+   document.getElementById("container").append(box)
+   })
+
+   function removeitem(ele,index)
+   {
+       console.log(index)
+       arr1.splice(index,1)
+       localStorage.setItem("productData",JSON.stringify(arr1))
+       window.location.reload()
+   }
+
+   function solditem(ele,btn1)
+   {
+     
+btn1.innerHTML="sold"
+btn1.style.backgroundColor="green"
+localStorage.setItem("productData",JSON.stringify(arr1))
+   }
+</script>
+

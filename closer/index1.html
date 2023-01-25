@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            border: solid 1px black;
+height: 200px;
+width: 180px;
+border-top: none;
+overflow: scroll;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" oninput="debounce(main,1000)" placeholder="search movies here" id="search">
+    <div id="container"></div>
+</body>
+</html>
+<script>
+let box=document.getElementById("container")
+let id;
+    async function searchvideos(){
+let q=document.getElementById("search").value
+try{
+    let res= await fetch(`https://www.omdbapi.com/?apikey=6a41ddca&s=${q}`)
+    let data=await res.json()
+    //console.log(data.Search)
+    let moviescontent=data.Search
+   return moviescontent
+}
+catch(err){
+    console.log(err)
+}
+}
+// let appendmovies= (datamovies)=>{
+    function movies(data){
+//console.log(data)
+ data.forEach(function(ele){
+box.innerHTML=null
+     console.log(ele.Title)
+          let div=document.createElement("div")
+   let heading=document.createElement("h2")
+    heading.innerHTML=ele.Title
+ box.append(heading)
+ })
+}
+async function  main()
+{
+let cont=await searchvideos()
+if(cont===undefined)
+{
+return false
+}
+movies(cont)
+}
+function debounce(func,delay)
+{
+if(id){
+    clearInterval(id);
+}
+id=setTimeout(function(){
+    func()
+},delay)
+}
+
+</script>

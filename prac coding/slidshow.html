@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="startshow()">Star slidshow</button>
+<button onclick="stopshow()">stop slidshow</button>
+<div id="show"></div>
+</body>
+</html>
+<script>
+let box=document.getElementById("show")
+let id;
+let i=0
+let time;
+startshow=()=>{
+   let arr1=JSON.parse(localStorage.getItem("imagesdata"))
+   let imageofshow=document.createElement('img')
+   id=setInterval(function(){
+        time=(Math.random()*10)*1000
+       if(i==arr1.length)
+       {
+           i=0
+       }
+box.innerHTML=null
+           imageofshow.src=arr1[i]
+           box.append(imageofshow)
+           i++
+   },time)
+
+}
+stopshow=()=>{
+   
+clearInterval(id)
+
+}
+  
+</script>

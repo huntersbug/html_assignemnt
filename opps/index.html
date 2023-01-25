@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Opps Concept</h1>
+</body>
+</html>
+<script>
+// Inheritance Property of Laptop
+//Property from parents
+    class laptop{
+        constructor(n,b)
+        {
+            this.ram=n;
+            this.gen=b
+        }
+    }
+
+
+    let c1=new laptop("32GB","I3")
+    console.log(c1)
+
+
+    class desktop extends laptop{
+        constructor(n,b){
+            super(n,b)
+            this.Drive="ssd"
+        }
+    }
+
+    let c2=new desktop("32GB","I3")
+    console.log(c2)
+
+   
+
+    // Encapsulation
+//Hide detail and not easily get able
+
+    class student{
+        constructor(){
+            let name;
+            let score;
+        }
+
+        getName() {
+        // return this.name;
+        return this.score;
+    }
+    setName(a){
+        // this.name=value;
+        this.score=a;
+    }
+    }
+    let e1=new student()
+    e1.setName(32)
+    console.log(e1.getName())   
+
+
+    // Abstraction
+
+
+
+    // Abstraction is a process of hiding the implementation details and showing only functionality to the user
+    class studentmasai{
+        constructor(n,r){
+          this.name=n;
+          this.score=r;
+          this.skill=[]
+        }
+
+     learnskill(skill){
+         this.skill.push(skill)
+     }
+     
+    }
+    let e5=new studentmasai("Dablo",9)
+  e5.learnskill("coding")
+    console.log(e5)   
+// polymorphosim
+
+//Polymorphism means "many forms", and it occurs when we have many classes that are related to each other by inheritance
+class race{
+    run(){
+        console.log("car is running")
+    }
+}
+class bikerace extends race{
+    run(){
+        console.log("bike is running")
+    }
+}
+
+let v1=new race()
+let v2=new bikerace()
+v2.run()
+</script>

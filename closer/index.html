@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      #query {
+        width: 200px;
+      }
+      #movies {
+        border: solid 1px black;
+        height: 200px;
+        width: 206px;
+        border-top: none;
+        overflow: scroll;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hot star</h1>
+    <!-- change on input to main now -->
+    <!-- change input to debounce -->
+    <input oninput="debounce(main,1000)" type="text" name="" id="query" />
+    <div id="movies"></div>
+  </body>
+</html>
+<script>
+  let id;
+  let movies_div = document.getElementById("movies");
+  //----------------Async function---------------------------------------
+  async function searchMovies() {
+    try {
+      const query = document.getElementById("query").value;
+      let res = await fetch(
+        `https://www.omdbapi.com/?apikey=6a41ddca&s=${query}`
+      );
+      let data = await res.json();
+      const movies = data.Search;
+      //appendMovies(movies)
+      return movies;
+ 
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  //-----------------Async function end----------------------------------------------------
+  //----Appending part start----------------------------------------------------
+  function appendMovies(data) {
+    //------------------------Optimisation start------------------------------
+    // if(data==undefined)
+    // {
+    // return false
+    // }
+    //----------------------------------------------------------------------------------
+    movies_div.innerHTML = null;
+    //-----------------Optimasation end----------------------------------------------------
+    data.forEach(function (el) {
+      let p = document.createElement("p");
+      p.innerText = el.Title;
+      movies_div.append(p);
+    });
+  }
+  //--------------------Append end here------------------------------------------------------------
+  async function main() {
+    let data = await searchMovies();
+
+    if (data == undefined) {
+      return false;
+    }
+    appendMovies(data);
+  }
+
+  //----------------------debouncing---------
+
+  function debounce(func, delay) {
+   
+    if (id) {
+      clearInterval(id);
+    }
+
+id = setTimeout(function () {
+      func();
+    }, delay);
+  }
+</script>

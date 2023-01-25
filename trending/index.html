@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+#navbar{
+    background-color: teal;
+    text-align: center;
+}
+#container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: auto;
+    gap: 20%;
+}
+    </style>
+</head>
+<body>
+    <img src="" alt="">
+<nav id="navbar">Trending Movies</nav>
+<div id="container"></div>
+</body>
+</html>
+<script>
+let url="https://api.themoviedb.org/3/trending/All/day?api_key=ada96b5692cfaab5b835b7766b4633f8"
+
+let maindiv=document.getElementById("container")
+fetch(url)
+.then(function(res){
+return res.json()
+}).then(function(res){
+    //console.log(res.results)
+    appendmovies(res)
+}).catch(function(err){
+console.log(err)
+})
+
+//https://api.themoviedb.org/3/search/multi?api_key=ada96b5692cfaab5b835b7766b4633f8&language=en-US&page=1&include_adult=false&query${query}
+function appendmovies(data)
+{
+    let arr=data.results
+console.log(arr)
+ arr.forEach(function(ele){
+    console.log(ele.poster_path)
+    let box=document.createElement("div")
+     let heading=document.createElement("h2")
+          heading.innerHTML=`Title of Movie:${ele.original_title||ele.title||ele.name}`
+      let poster=document.createElement("img")
+     poster.src=ele.poster_path
+     let popularity=document.createElement("h3")
+          popularity.innerHTML=`Popularity of movie:${ele.popularity}`
+      box.append(poster,heading,popularity)
+   
+  maindiv.append(box)
+})
+
+//    
+
+
+}
+</script>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/c784e52c92.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+  #utube{
+width: 100%;
+background-color: white;
+
+border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+height: 40px;
+display: flex;
+justify-content: space-evenly
+}
+ #container{
+margin: auto;
+  text-align: center;
+  
+} 
+#imglogo{
+height: 100%;
+margin-left: 40px;
+}
+#showvideo{
+    width: 350px;
+    height: 25px;
+    border-radius: 5px;
+}
+#showcontent{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: auto;
+    gap: 5%;
+}
+    </style>
+  
+</head>
+<body>
+    <nav id="utube">
+      
+            <img src="https://logos-world.net/wp-content/uploads/2020/04/YouTube-Logo.png" alt="" id="imglogo">
+         <div id="container">
+            <input type="text" id="showvideo" placeholder="search">
+            <button id="search" onclick="videocontent()">Search</button>
+        
+         </div>
+    
+    </nav>
+
+    <div id="showcontent"></div>
+
+    
+</body>
+</html>
+
+
+
+<!-- <iframe width="560" height="315" 
+src="https://www.youtube.com/embed/eMvGmIkmF7Y" 
+title="YouTube video player"
+ frameborder="0" 
+ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen> -->
+
+</iframe>
+<script src="./index.js"></script>
